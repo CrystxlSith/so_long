@@ -6,7 +6,7 @@
 #    By: crystal <crystal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 19:00:12 by crystal           #+#    #+#              #
-#    Updated: 2024/07/11 22:54:26 by crystal          ###   ########.fr        #
+#    Updated: 2024/07/11 23:12:34 by crystal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,9 +41,11 @@ else
 	MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
 endif
  
-# [...]
- 
+.SILENT:
+
 all: $(MLX_LIB) $(NAME)
+
+# [...]
  
 # .c.o:
 # 	$(CC) $(CFLAGS) -c -o $(EXEC) $@ $< $(INCLUDES)
