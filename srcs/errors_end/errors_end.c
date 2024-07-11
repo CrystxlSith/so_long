@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   errors_end.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 17:08:50 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/10 17:18:39 by crystal          ###   ########.fr       */
+/*   Created: 2024/07/11 17:11:50 by crystal           #+#    #+#             */
+/*   Updated: 2024/07/11 17:11:58 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "../../includes/so_long.h"
+
+void	end_prog(t_mlx_data *data)
+{
+	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+}
