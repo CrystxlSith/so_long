@@ -6,12 +6,11 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:19:52 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/11 17:38:07 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/11 17:56:42 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
-
 
 int	handle_input(int keycode, t_mlx_data *data)
 {
