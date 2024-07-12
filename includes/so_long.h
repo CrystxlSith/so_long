@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:08:50 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/12 20:41:09 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/12 22:34:03 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ typedef struct s_mlx_data
 	int		height;
 	int		width;
 	int		count;
+	int		rows;
+	int		cols;
 	bool	map_allocated;
 	char 	**map;
 	void	*mlx;
@@ -96,9 +98,11 @@ void	free_map(char **map);
 void	end_prog(t_mlx_data *data);
 
 /*		INIT		*/
+int			is_valid_content(char c, t_map_content map_content);
 void	init_map_content(t_mlx_data *data);
 void	check_map(t_mlx_data *data);
 void	get_map(char **argv, t_mlx_data *data);
-int	is_valid_content(char c, t_map_content map_content);
+void	ft_mlx_init(t_mlx_data *data, int rows, int cols);
+void	print_image(t_mlx_data *data, char *path, int x, int y);
 
 #endif

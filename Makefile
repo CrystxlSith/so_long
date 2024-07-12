@@ -6,12 +6,12 @@
 #    By: crystal <crystal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 19:00:12 by crystal           #+#    #+#              #
-#    Updated: 2024/07/12 19:01:21 by crystal          ###   ########.fr        #
+#    Updated: 2024/07/12 22:00:00 by crystal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = main.c srcs/errors/errors_end.c srcs/errors/ft_error.c srcs/init/get_map.c srcs/init/init_map.c srcs/inputs/handler.c \
-		srcs/inputs/check_map.c srcs/utils/utils.c
+		srcs/inputs/check_map.c srcs/utils/utils.c srcs/init/mlx_init.c
 			
 UNAME := $(shell uname)
 

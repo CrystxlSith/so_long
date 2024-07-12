@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 17:56:29 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/12 21:29:54 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/12 22:23:33 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,17 @@ static void	check_valid_map(t_mlx_data *data)
 			ft_error(RED"Error\nSomething is wrong with your map!\n"RESET, data);
 		while (data->map[i][j])
 			j++;
-		// if (data->map[i][j + 1] == '\n')
-		// 	ft_error(RED"Error\nYou have an emptt line in your map\n"RESET, data);
 		if (data->count == 0)
+		{
+			data->rows = j;
 			data->count = j;
+			
+		}
 		if (data->count != j)
 			ft_error(RED"Error\nMap is not rectangular\n"RESET, data);
 		i++;
 	}
+	data->cols = i;
 	check_valid_content(data);
 }
 

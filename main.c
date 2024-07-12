@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:07:36 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/12 17:43:37 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/12 22:16:57 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int argc, char **argv)
 	check_args(argc, argv, data);
 	init_map_content(data);
 	get_map(argv, data);
+	ft_mlx_init(data, data->rows, data->cols);
 	// data->win = mlx_new_window(data->mlx, 1250, 720, "so_long");
 	// if (!data->win)
 	// {
