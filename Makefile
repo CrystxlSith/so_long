@@ -6,11 +6,12 @@
 #    By: crystal <crystal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 19:00:12 by crystal           #+#    #+#              #
-#    Updated: 2024/07/11 23:12:34 by crystal          ###   ########.fr        #
+#    Updated: 2024/07/12 19:01:21 by crystal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c srcs/errors_end/errors_end.c srcs/init/init_map.c srcs/inputs/handler.c \
+SRCS = main.c srcs/errors/errors_end.c srcs/errors/ft_error.c srcs/init/get_map.c srcs/init/init_map.c srcs/inputs/handler.c \
+		srcs/inputs/check_map.c srcs/utils/utils.c
 			
 UNAME := $(shell uname)
 
@@ -36,15 +37,15 @@ MAGENTA= \033[35m
 CYAN   = \033[36m
 RESET  = \033[0m
 ifeq ($(shell uname), Linux)
-	MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+	MLX_FLAGS = mlx/libmlx.a mlx/libmlx_Linux.a -lX11 -lXext
 else
 	MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
 endif
  
+
 .SILENT:
 
-all: $(MLX_LIB) $(NAME)
-
+all: $(MLX_LIB) so_long
 # [...]
  
 # .c.o:
@@ -52,20 +53,17 @@ all: $(MLX_LIB) $(NAME)
 
 so_long: $(NAME) $(OBJS)
 	echo "${CYAN}Compiling so_long...${RESET}"
-	$(CC) $(CFLAGS) so_long.a -o so_long
+	cc so_long.a libft.a mlx/libmlx.a mlx/libmlx_Linux.a -lX11 -lXext -o so_long
 	echo "${GREEN}Succes!!!${RESET}"
-
 $(NAME): $(OBJS)
 	echo "${CYAN}Compiling libft...${RESET}"
 	$(MAKE) --no-print-directory -C ./libft
-	cp libft/libft.a $(NAME)
+	cp libft/libft.a ../so_long
 	ar rc $(NAME) $(OBJS)
 	mkdir objs
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS)
- 
+	mv $(OBJS) objs
 $(MLX_LIB):
 	@make -C $(MLX_DIR)
-
 clean:
 	echo "${RED}Cleaning libft && Push_swap...${RESET}"
 	$(MAKE) clean --no-print-directory -C ./libft
@@ -75,7 +73,7 @@ clean:
 fclean: clean
 	$(MAKE) fclean --no-print-directory -C ./libft
 	echo "${RED}Cleaning exucutable files...${RESET}"
-	$(RM) $(NAME) push_swap
+	$(RM) $(NAME) so_long
 	echo "${GREEN}Succes!!!${RESET}"
 re: fclean all
 
