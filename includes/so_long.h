@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:08:50 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/13 00:03:02 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/13 00:39:16 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_mlx_data
 	int		count;
 	int		rows;
 	int		cols;
+	int		movements;
 	bool	map_allocated;
 	char 	**map;
 	void	*mlx;

@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 21:37:58 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/13 00:33:27 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/13 00:50:09 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ t_img	ft_image(void *mlx, char *path, t_mlx_data *data)
 static void	ft_init_images(t_mlx_data *data)
 {
 	data->ground = ft_image(data->mlx, "assets/grounds.xpm", data);
-	data->wall = ft_image(data->mlx, "assets/AnyConv.com__walls.xpm", data);
-	data->player = ft_image(data->mlx, "assets/AnyConv.com__player.xpm", data);
-	data->exit = ft_image(data->mlx, "assets/AnyConv.com__exit.xpm", data);
-	data->collectible = ft_image(data->mlx, "assets/AnyConv.com__collectible.xpm", data);
+	data->wall = ft_image(data->mlx, "assets/walls.xpm", data);
+	data->player = ft_image(data->mlx, "assets/elf.xpm", data);
+	data->exit = ft_image(data->mlx, "assets/exit.xpm", data);
+	data->collectible = ft_image(data->mlx, "assets/collectible.xpm", data);
 }
 
 void	ft_mlx_init(t_mlx_data *data)
