@@ -6,32 +6,34 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:32:57 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/12 22:55:14 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/13 00:05:29 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void	ft_mlx_free_images(t_mlx_data *data)
+static void	ft_mlx_free_images(t_mlx_data *data)
 {
-	if (data->img.)
-		mlx_destroy_image(data->mlx, data->img);
-	if (data->img2)
-		mlx_destroy_image(data->mlx, data->img2);
-	if (data->img3)
-		mlx_destroy_image(data->mlx, data->img3);
-	if (data->img4)
-		mlx_destroy_image(data->mlx, data->img4);
-	if (data->img5)
-		mlx_destroy_image(data->mlx, data->img5);
+	if (data->ground.path)
+		mlx_destroy_image(data->mlx, data->ground.path);
+	if (data->wall.path)
+		mlx_destroy_image(data->mlx, data->wall.path);
+	if (data->player.path)
+		mlx_destroy_image(data->mlx, data->player.path);
+	if (data->exit.path)
+		mlx_destroy_image(data->mlx, data->exit.path);
+	if (data->collectible.path)
+		mlx_destroy_image(data->mlx, data->collectible.path);
 }
 
 void	free_all(t_mlx_data *data)
 {
+	ft_mlx_free_images(data);
 	if (data->map_allocated == true)
 		free_map(data->map);
+	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
 	free(data->mlx);
-	ft_mlx_destroy_images(data);
 	if (data)
 		free(data);
 	exit(1);

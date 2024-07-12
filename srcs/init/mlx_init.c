@@ -6,18 +6,32 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 21:37:58 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/12 23:35:22 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/13 00:33:27 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void	ft_init_images(t_mlx_data *data)
+t_img	ft_image(void *mlx, char *path, t_mlx_data *data)
 {
+	t_img	img;
 
+	img.path = mlx_xpm_file_to_image(mlx, path, &img.x, &img.y);
+	if (!img.path)
+		ft_error(RED"Error\nfailed to create image\n"RESET, data);
+	return (img);
 }
 
-void	ft_mlx_init(t_mlx_data *data, int rows, int cols)
+static void	ft_init_images(t_mlx_data *data)
+{
+	data->ground = ft_image(data->mlx, "assets/grounds.xpm", data);
+	data->wall = ft_image(data->mlx, "assets/AnyConv.com__walls.xpm", data);
+	data->player = ft_image(data->mlx, "assets/AnyConv.com__player.xpm", data);
+	data->exit = ft_image(data->mlx, "assets/AnyConv.com__exit.xpm", data);
+	data->collectible = ft_image(data->mlx, "assets/AnyConv.com__collectible.xpm", data);
+}
+
+void	ft_mlx_init(t_mlx_data *data)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)

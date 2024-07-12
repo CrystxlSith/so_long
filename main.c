@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:07:36 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/12 22:16:57 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/13 00:32:16 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,19 @@ int	main(int argc, char **argv)
 	check_args(argc, argv, data);
 	init_map_content(data);
 	get_map(argv, data);
-	ft_mlx_init(data, data->rows, data->cols);
+	ft_mlx_init(data);
 	// data->win = mlx_new_window(data->mlx, 1250, 720, "so_long");
 	// if (!data->win)
 	// {
 	// 	mlx_destroy_display(data->mlx);
 	// 	return (free(data->mlx), 1);
 	// }
-	// mlx_key_hook(data->win, handle_input, &data);
+	mlx_key_hook(data->win, handle_input, &data);
 	// print_image(data, "assets/AnyConv.com__grounds.xpm", 100, 100);
 	// printf("Window created, count = %d\n", data->count);
-	// mlx_loop(data->mlx);
-	end_prog(data);
+	// 
+	
+	mlx_loop(data->mlx);
+	free_all(data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:08:50 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/12 22:34:03 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/13 00:03:02 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,9 @@ typedef struct s_map_content
 
 typedef struct s_img
 {
-	int		height;
-	int		width;	
-	void	*png_wall;
-	void	*png_exit;
-	void	*png_collectible;
-	void	*png_player;
-	void	*png_ground;
-	char	*wall;
-	char	*exit;
-	char	*collectible;
-	char	*player;
-	char	*ground;
+	int			y;
+	int			x;
+	void		*path;
 
 }		t_img;
 
@@ -84,6 +75,11 @@ typedef struct s_mlx_data
 	void	*mlx;
 	void	*win;
 	t_img	img;
+	t_img	wall;
+	t_img	exit;
+	t_img	collectible;
+	t_img	player;
+	t_img	ground;
 	t_map_content	map_content;
 	t_player_pos	player_pos;
 }		t_mlx_data;
@@ -92,17 +88,18 @@ typedef struct s_mlx_data
 int	handle_input(int keycode, t_mlx_data *data);
 void	check_args(int argc, char **argv, t_mlx_data *data);
 
-/*		ERRORS		*/
+/*		ERRORS/END		*/
 char	**ft_error(char *str, t_mlx_data *data);
 void	free_map(char **map);
 void	end_prog(t_mlx_data *data);
+void	free_all(t_mlx_data *data);
 
 /*		INIT		*/
 int			is_valid_content(char c, t_map_content map_content);
 void	init_map_content(t_mlx_data *data);
 void	check_map(t_mlx_data *data);
 void	get_map(char **argv, t_mlx_data *data);
-void	ft_mlx_init(t_mlx_data *data, int rows, int cols);
+void	ft_mlx_init(t_mlx_data *data);
 void	print_image(t_mlx_data *data, char *path, int x, int y);
 
 #endif
