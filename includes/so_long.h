@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:08:50 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/15 07:34:30 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/07/15 10:55:40 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void	free_map(char **map);
 void	end_prog(t_mlx_data *data);
 void	free_all(t_mlx_data *data);
 void	ft_close_all(t_mlx_data *data);
+int	end(t_mlx_data *data);
 
 /*		INIT		*/
 int			is_valid_content(char c, t_map_content map_content);
@@ -112,5 +113,5 @@ t_img	ft_image(void *mlx, char *path, t_mlx_data *data);
 
 /*		RENDER		*/
 void	render_map(t_mlx_data *data);
-
+int	make_mouv(t_mlx_data *data);
 #endif

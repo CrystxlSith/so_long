@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:07:36 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/13 21:45:26 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/15 10:55:14 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ int	main(int argc, char **argv)
 	ft_init_sprites(data);
 	render_map(data);
 	//mlx_put_image_to_window(data->mlx, data->win, data->img.player_front, 64, 64);
-	mlx_key_hook(data->win, handle_input, &data);
+	//mlx_key_hook(data->win, handle_input, &data);
+	mlx_hook(data->win, 3, 2, handle_input, data);
+	mlx_hook(data->win, 17, 0, end, data);
+	mlx_hook(data->win, 12, 32768, make_mouv, data);
+
 	//print_image(data, "assets/.xpm", 100, 100);
 	printf("Window created, count = %d\n", data->count);
 	mlx_loop(data->mlx);

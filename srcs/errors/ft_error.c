@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:32:57 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/13 19:30:21 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/15 10:55:25 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,10 @@ void	ft_close_all(t_mlx_data *data)
 	printf("Exiting...\n");
 	free_all(data);
 	exit(1);
+}
+
+int	end(t_mlx_data *data)
+{
+	free_all(data);
+	return (0);
 }
