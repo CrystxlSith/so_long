@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:19:52 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/15 14:03:10 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:04:33 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ static void	move_right(t_mlx_data *data)
 		{
 			data->map[data->player_pos.y][data->player_pos.x] = GROUND;
 			data->map_content.collectible_found -= 1;
+			if (data->map_content.collectible_found == 0)
+				data->img.exit_closed = mlx_xpm_file_to_image(data->mlx, "sprites/Door_open.xpm", &data->img.x, &data->img.y);
 		}
 		else if (data->map[data->player_pos.y][data->player_pos.x + 1] == EXIT)
 		{
