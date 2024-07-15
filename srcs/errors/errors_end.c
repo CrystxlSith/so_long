@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 17:11:50 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/12 17:26:29 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/13 16:40:32 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	end_prog(t_mlx_data *data)
 	if (data->map_allocated == true)
 		free_map(data->map);
 	free(data);
-	// mlx_destroy_window(data->mlx, data->win);
-	// mlx_destroy_display(data->mlx);
-	//free(data->mlx);
+	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
 }
