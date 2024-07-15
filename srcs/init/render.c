@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 19:59:00 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/15 10:52:00 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/07/15 13:50:04 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ void	render_map(t_mlx_data *data)
 		rows = 0;
 		while (rows < data->rows)
 		{
-			mlx_put_image_to_window(data->mlx, data->win, data->img.ground2, rows * 32, cols * 32);
+			// if (cols % 2 == 0 && rows % 2 == 0)
+				mlx_put_image_to_window(data->mlx, data->win, data->img.ground2, rows * 32, cols * 32);
+			// if (cols % 2 != 0 && rows % 2 != 0)
+			// 	mlx_put_image_to_window(data->mlx, data->win, data->img.ground1, rows * 32, cols * 32);
 			if (data->map[cols][rows] == WALL)
 				mlx_put_image_to_window(data->mlx, data->win, data->img.wall, rows * 32, cols * 32);
 			else if (data->map[cols][rows] == EXIT)

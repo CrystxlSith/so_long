@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:07:36 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/15 10:55:14 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/07/15 13:35:13 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_init_sprites(t_mlx_data *data)
 {
-	data->img.ground1 = mlx_xpm_file_to_image(data->mlx, "sprites/Grass1.xpm", &data->img.x, &data->img.y);
+	data->img.ground1 = mlx_xpm_file_to_image(data->mlx, "sprites/Grass.xpm", &data->img.x, &data->img.y);
 	data->img.ground2 = mlx_xpm_file_to_image(data->mlx, "sprites/Grass2.xpm", &data->img.x, &data->img.y);
 	data->img.chest_closed = mlx_xpm_file_to_image(data->mlx, "sprites/Chest_closed.xpm", &data->img.x, &data->img.y);
 	data->img.chest_open = mlx_xpm_file_to_image(data->mlx, "sprites/Chest_open.xpm", &data->img.x, &data->img.y);
