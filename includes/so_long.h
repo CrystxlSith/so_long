@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:08:50 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/15 10:55:40 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:41:59 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@
 #define COLLECTIBLE 'C'
 #define PLAYER 'P'
 #define GROUND '0'
-
+#define TRANSPARENT_COLOR 0x060608  // La couleur spécifiée dans votre XPM pour la transparence
+#define BACKGROUND_COLOR 0x000000 
 #define RED "\033[0;31m"
 #define CYAN "\033[0;34m"
 #define GREEN "\033[0;32m"
