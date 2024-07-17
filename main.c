@@ -3,41 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:07:36 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/16 15:54:07 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/07/17 20:15:24 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/so_long.h"
 
-void	*file_to_image(void *mlx, char *path, int x, int y)
+void	*file_to_image(t_mlx_data *data, char *path, int x, int y)
 {
 	void	*img;
 
-	img = mlx_xpm_file_to_image(mlx, path, &x, &y);
+	img = mlx_xpm_file_to_image(data->mlx, path, &x, &y);
 	if (!img)
 	{
-		printf("Error\n");
+		free_map(data->map);
 		exit(1);
 	}
-	return (img);
+	return (img);	
 }
 
 void	ft_init_sprites(t_mlx_data *data)
 {
-	data->img.ground1 = file_to_image(data->mlx, "sprites/tileset_arranged.xpm", data->img.x, data->img.y);
-	data->img.ground2 = file_to_image(data->mlx, "sprites/tileset_arranged.xpm", data->img.x, data->img.y);
-	data->img.chest_closed = file_to_image(data->mlx, "sprites/gbost-town.xpm", data->img.x, data->img.y);
-	data->img.chest_open = file_to_image(data->mlx, "sprites/gbost-town.xpm", data->img.x, data->img.y);
-	data->img.wall = file_to_image(data->mlx, "sprites/Walls.xpm", data->img.x, data->img.y);
-	data->img.exit_closed =  file_to_image(data->mlx, "sprites/Door_closed.xpm", data->img.x, data->img.y);
-	data->img.exit_open =  file_to_image(data->mlx, "sprites/Door_open.xpm", data->img.x, data->img.y);
-	data->img.player_back =  file_to_image(data->mlx, "sprites/Warrior_back.xpm", data->img.x, data->img.y);
-	data->img.player_left = file_to_image(data->mlx, "sprites/Warrior_left.xpm", data->img.x, data->img.y);
-	data->img.player_front = file_to_image(data->mlx, "sprites/Warrior_front.xpm", data->img.x, data->img.y);
-	data->img.player_right = file_to_image(data->mlx, "sprites/Warrior_right.xpm", data->img.x, data->img.y);
+	int	x;
+	int	y;
+
+	x = data->img.x;
+	y = data->img.y;
+	data->img.ground2 = file_to_image(data, GROUND_PATH, x, y);
+	data->img.chest_closed = file_to_image(data, COLLECTIBLE_PATH, x, y);
+	data->img.wall = file_to_image(data, WALL_PATH, x, y);
+	data->img.exit_closed = file_to_image(data, EXIT_CL_PATH, x, y);
+	data->img.exit_open = file_to_image(data, EXIT_OP_PATH, x, y);
+	data->img.player_back = file_to_image(data, PLAYER_BA_PATH, x, y);
+	data->img.player_left = file_to_image(data, PLAYER_LE_PATH, x, y);
+	data->img.player_front = file_to_image(data, PLAYER_FR_PATH, x, y);
+	data->img.player_right = file_to_image(data, PLAYER_RI_PATH, x, y);
 }
 
 void	print_image(t_mlx_data *data, char *path, int x, int y)
@@ -55,26 +58,6 @@ void	print_image(t_mlx_data *data, char *path, int x, int y)
 	mlx_put_image_to_window(data->mlx, data->win, img, x, y);
 }
 
-// void replace_transparent_pixels(void *img_ptr)
-// {
-// 	int width = 0;
-// 	int height = 0;
-//     int *data;
-//     int bits_per_pixel;
-//     int size_line;
-//     int endian;
-
-//     data = (int *)mlx_get_data_addr(img_ptr, &bits_per_pixel, &size_line, &endian);
-//     for (int y = 0; y < height; y++) {
-//         for (int x = 0; x < width; x++) {
-//             int pixel = data[y * width + x];
-//             if (pixel == TRANSPARENT_COLOR) { // Remplacer la couleur spécifiée par la couleur de fond
-//                 data[y * width + x] = BACKGROUND_COLOR;
-//             }
-//         }
-//     }
-// }
-
 int	main(int argc, char **argv)
 {
 	t_mlx_data	*data;
@@ -85,27 +68,12 @@ int	main(int argc, char **argv)
 	get_map(argv, data);
 	ft_mlx_init(data);
 	ft_init_sprites(data);
-	// replace_transparent_pixels(data);
 	render_map(data->mlx);
-	//mlx_put_image_to_window(data->mlx, data->win, data->img.player_front, 64, 64);
-	//mlx_key_hook(data->win, handle_input, &data);
 	mlx_hook(data->win, 3, 2, handle_input, data);
 	mlx_hook(data->win, 17, 0, end, data);
 	mlx_hook(data->win, 12, 32768, make_mouv, data);
-// if ((x % 2 == 1 && y % 2 != 1) || (x % 2 != 1 && y % 2 == 1))
-	//print_image(data, "assets/.xpm", 100, 100);
 	printf("Window created, count = %d\n", data->count);
 	mlx_loop(data->mlx);
-	// data->win = mlx_new_window(data->mlx, 1250, 720, "so_long");
-	// if (!data->win)
-	// {
-	// 	mlx_destroy_display(data->mlx);
-	// 	return (free(data->mlx), 1);
-	// }
-	// print_image(data, "assets/AnyConv.com__grounds.xpm", 100, 100);
-	// printf("Window created, count = %d\n", data->count);
-	// 
-	
 	free_all(data);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:08:50 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/16 15:41:59 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/07/17 20:10:34 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,18 @@
 #define COLLECTIBLE 'C'
 #define PLAYER 'P'
 #define GROUND '0'
-#define TRANSPARENT_COLOR 0x060608  // La couleur spécifiée dans votre XPM pour la transparence
-#define BACKGROUND_COLOR 0x000000 
+
+#define WALL_PATH "sprites/Walls.xpm"
+#define EXIT_CL_PATH "sprites/Door_closed.xpm"
+#define EXIT_OP_PATH "sprites/Door_open.xpm"
+#define COLLECTIBLE_PATH "sprites/coin.xpm"
+#define PLAYER_FR_PATH "sprites/Warrior_front.xpm"
+#define PLAYER_BA_PATH "sprites/Warior_back.xpm"
+#define PLAYER_LE_PATH "sprites/Warrior_left.xpm"
+#define PLAYER_RI_PATH "sprites/Warrior_right.xpm"
+#define GROUND_PATH "sprites/Grass2.xpm"
+
+
 #define RED "\033[0;31m"
 #define CYAN "\033[0;34m"
 #define GREEN "\033[0;32m"
@@ -54,6 +64,7 @@ typedef struct s_img
 {
 	int			y;
 	int			x;
+	
 	void		*ground1;
 	void		*ground2;
 	void		*wall;
@@ -68,11 +79,11 @@ typedef struct s_img
 
 }		t_img;
 
-typedef struct s_player_pos
+typedef struct s_pos
 {
 	int		x;
 	int		y;
-}		t_player_pos;
+}		t_pos;
 
 typedef struct s_mlx_data
 {
@@ -88,7 +99,7 @@ typedef struct s_mlx_data
 	void	*win;
 	t_img	img;
 	t_map_content	map_content;
-	t_player_pos	player_pos;
+	t_pos	pos;
 }		t_mlx_data;
 
 /* 		INPUTS 		*/
@@ -96,7 +107,7 @@ int	handle_input(int keycode, t_mlx_data *data);
 void	check_args(int argc, char **argv, t_mlx_data *data);
 
 /*		ERRORS/END		*/
-char	**ft_error(char *str, t_mlx_data *data);
+int	ft_error(char *str, t_mlx_data *data);
 void	free_map(char **map);
 void	end_prog(t_mlx_data *data);
 void	free_all(t_mlx_data *data);
@@ -109,10 +120,15 @@ void	init_map_content(t_mlx_data *data);
 void	check_map(t_mlx_data *data);
 void	get_map(char **argv, t_mlx_data *data);
 void	ft_mlx_init(t_mlx_data *data);
+void	*file_to_image(t_mlx_data *data, char *path, int x, int y);
 void	print_image(t_mlx_data *data, char *path, int x, int y);
 t_img	ft_image(void *mlx, char *path, t_mlx_data *data);
 
 /*		RENDER		*/
+int		make_mouv(t_mlx_data *data);
 void	render_map(t_mlx_data *data);
-int	make_mouv(t_mlx_data *data);
+void	you_win(t_mlx_data *data);
+void	new_exit(t_mlx_data *data);
+void	new_player(t_mlx_data *data, char *path);
+
 #endif

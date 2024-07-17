@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 17:11:50 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/13 16:40:32 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/17 18:06:45 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,22 @@ void	end_prog(t_mlx_data *data)
 {
 	if (data->map_allocated == true)
 		free_map(data->map);
-	free(data);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
+	free(data);
+}
+
+void	you_win(t_mlx_data *data)
+{
+	ft_printf(GREEN"YOU WIN\n"RESET);
+	ft_printf("Vous avez fait %d mouvements\n", data->movements);
+	end(data);
+	exit(0);
+}
+
+int	end(t_mlx_data *data)
+{
+	free_all(data);
+	return (0);
 }

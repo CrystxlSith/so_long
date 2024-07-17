@@ -2,7 +2,7 @@
 static char *fire2[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 85 1 ",
-"  c #FF4D00",
+"  c #4E6337",
 ". c #FF4F01",
 "X c #FF5002",
 "o c #FF5506",
@@ -86,7 +86,7 @@ static char *fire2[] = {
 "/ c #FFE700",
 "( c #FFE800",
 ") c #FFE900",
-"_ c #489848",
+"_ c #4E6337",
 /* pixels */
 "________________________________",
 "________________________________",
