@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:07:36 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/17 20:15:24 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/17 20:21:19 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*file_to_image(t_mlx_data *data, char *path, int x, int y)
 	img = mlx_xpm_file_to_image(data->mlx, path, &x, &y);
 	if (!img)
 	{
-		free_map(data->map);
+		ft_close_all(data);
 		exit(1);
 	}
 	return (img);	

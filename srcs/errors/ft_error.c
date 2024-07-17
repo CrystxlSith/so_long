@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:32:57 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/17 20:10:13 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/17 20:22:54 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 static void	ft_mlx_free_images(t_mlx_data *data)
 {
-	mlx_destroy_image(data->mlx, data->img.chest_closed);
-	mlx_destroy_image(data->mlx, data->img.exit_open);
-	mlx_destroy_image(data->mlx, data->img.exit_closed);
-	mlx_destroy_image(data->mlx, data->img.ground2);
-	mlx_destroy_image(data->mlx, data->img.wall);
-	mlx_destroy_image(data->mlx, data->img.player_back);
-	mlx_destroy_image(data->mlx, data->img.player_front);
-	mlx_destroy_image(data->mlx, data->img.player_left);
-	mlx_destroy_image(data->mlx, data->img.player_right);
+	if (data->img.chest_closed)
+		mlx_destroy_image(data->mlx, data->img.chest_closed);
+	if (data->img.exit_open)
+		mlx_destroy_image(data->mlx, data->img.exit_open);
+	if (data->img.exit_closed)
+		mlx_destroy_image(data->mlx, data->img.exit_closed);
+	if (data->img.ground2)
+		mlx_destroy_image(data->mlx, data->img.ground2);
+	if (data->img.wall)
+		mlx_destroy_image(data->mlx, data->img.wall);
+	if (data->img.player_front)
+		mlx_destroy_image(data->mlx, data->img.player_front);
 }
 
 void	free_all(t_mlx_data *data)
