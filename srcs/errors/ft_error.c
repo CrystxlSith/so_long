@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:32:57 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/17 20:22:54 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:24:51 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ static void	ft_mlx_free_images(t_mlx_data *data)
 		mlx_destroy_image(data->mlx, data->img.wall);
 	if (data->img.player_front)
 		mlx_destroy_image(data->mlx, data->img.player_front);
+	if (data->img.player_back)
+		mlx_destroy_image(data->mlx, data->img.player_back);
+	if (data->img.player_left)
+		mlx_destroy_image(data->mlx, data->img.player_left);
+	if (data->img.player_right)
+		mlx_destroy_image(data->mlx, data->img.player_right);
 }
 
 void	free_all(t_mlx_data *data)

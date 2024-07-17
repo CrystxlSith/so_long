@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:08:50 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/17 20:10:34 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:33:46 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 #define EXIT_OP_PATH "sprites/Door_open.xpm"
 #define COLLECTIBLE_PATH "sprites/coin.xpm"
 #define PLAYER_FR_PATH "sprites/Warrior_front.xpm"
-#define PLAYER_BA_PATH "sprites/Warior_back.xpm"
+#define PLAYER_BA_PATH "sprites/Warrior_back.xpm"
 #define PLAYER_LE_PATH "sprites/Warrior_left.xpm"
 #define PLAYER_RI_PATH "sprites/Warrior_right.xpm"
 #define GROUND_PATH "sprites/Grass2.xpm"

@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:07:36 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/17 21:22:42 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:32:12 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int	main(int argc, char **argv)
 	mlx_hook(data->win, 3, 2, handle_input, data);
 	mlx_hook(data->win, 17, 0, end, data);
 	mlx_hook(data->win, 12, 32768, make_mouv, data);
-	printf("Window created, count = %d\n", data->count);
 	mlx_loop(data->mlx);
 	free_all(data);
 	return (0);
