@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:32:57 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/17 21:24:51 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/19 18:28:48 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int	ft_error(char *str, t_mlx_data *data)
 {
 	if (data->map_allocated == true)
 		free_map(data->map);
+	if (data->map_to_fill)
+		free_map(data->map_to_fill);
 	free(data);
 	ft_printf(RED"Error\n"RED"%s\n"RESET, str);
 	exit (EXIT_FAILURE);
