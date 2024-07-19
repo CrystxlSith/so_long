@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:07:36 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/17 21:32:12 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/18 17:54:12 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*file_to_image(t_mlx_data *data, char *path, int x, int y)
 		ft_putstr_fd(RED"Error file to image\n"RED, 2);
 		ft_close_all(data);
 	}
-	return (img);	
+	return (img);
 }
 
 void	ft_init_sprites(t_mlx_data *data)
@@ -66,6 +66,7 @@ int	main(int argc, char **argv)
 	check_args(argc, argv, data);
 	init_map_content(data);
 	get_map(argv, data);
+	flood_fill(data);
 	ft_mlx_init(data);
 	ft_init_sprites(data);
 	render_map(data->mlx);

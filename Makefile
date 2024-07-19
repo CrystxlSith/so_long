@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+         #
+#    By: crystal <crystal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 19:00:12 by crystal           #+#    #+#              #
-#    Updated: 2024/07/16 15:42:05 by jopfeiff         ###   ########.fr        #
+#    Updated: 2024/07/18 18:47:33 by crystal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = main.c srcs/errors/errors_end.c srcs/errors/ft_error.c srcs/init/get_map.c srcs/init/init_map.c srcs/inputs/handler.c \
-		srcs/inputs/check_map.c srcs/utils/utils.c srcs/init/mlx_init.c srcs/init/render.c
+		srcs/inputs/check_map.c srcs/utils/utils.c srcs/inputs/flood_fill.c srcs/init/mlx_init.c srcs/init/render.c
 			
 UNAME := $(shell uname)
 

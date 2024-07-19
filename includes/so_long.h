@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:08:50 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/17 21:33:46 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/18 18:21:33 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ typedef struct s_mlx_data
 	int		movements;
 	bool	map_allocated;
 	char 	**map;
+	char	**map_to_fill;
 	void	*mlx;
 	void	*win;
 	t_img	img;
@@ -124,11 +125,14 @@ void	*file_to_image(t_mlx_data *data, char *path, int x, int y);
 void	print_image(t_mlx_data *data, char *path, int x, int y);
 t_img	ft_image(void *mlx, char *path, t_mlx_data *data);
 
-/*		RENDER		*/
+/*		RENDER			*/
 int		make_mouv(t_mlx_data *data);
 void	render_map(t_mlx_data *data);
 void	you_win(t_mlx_data *data);
 void	new_exit(t_mlx_data *data);
 void	new_player(t_mlx_data *data, char *path);
+
+/*		FLOOD FILL		*/
+void	flood_fill(t_mlx_data *data);
 
 #endif
