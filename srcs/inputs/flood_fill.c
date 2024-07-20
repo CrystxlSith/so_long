@@ -6,30 +6,11 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 17:56:15 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/20 11:35:50 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/20 21:48:56 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
-
-static void	print_map(char **map, int cols, int rows)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < rows)
-	{
-		j = 0;
-		while (j < cols)
-		{
-			ft_printf("%c", map[i][j]);
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}
-}
 
 static void	map_to_fill(t_mlx_data *data, int cols, int rows)
 {
@@ -86,6 +67,7 @@ void	verify_fill(t_mlx_data *data, int cols, int rows)
 		}
 		i++;
 	}
+	free_map(data->map_to_fill);
 }
 
 void	flood_fill(t_mlx_data *data)
@@ -97,6 +79,5 @@ void	flood_fill(t_mlx_data *data)
 	cols = data->cols;
 	map_to_fill(data, rows + 1, cols + 1);
 	ft_fill(data, data->pos.y, data->pos.x, 'X');
-	print_map(data->map_to_fill, rows, cols);
 	verify_fill(data, rows, cols);
 }

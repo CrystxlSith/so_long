@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 17:56:29 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/17 21:38:37 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/20 21:07:14 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ static void	check_valid_content(t_mlx_data *data)
 		j = 0;
 		while (data->map[i][j])
 		{
+			if (!is_valid_content(data->map[i][j], data->map_content))
+				ft_error(RED"Something is wrong \
+with your map!\n"RESET, data);
 			if (data->map[i][j] == PLAYER)
 			{
 				data->map_content.player_found += 1;
@@ -75,9 +78,6 @@ static void	check_valid_map(t_mlx_data *data)
 	while (data->map[i])
 	{
 		j = 0;
-		if (!is_valid_content(data->map[i][j], data->map_content))
-			ft_error(RED"Something is wrong \
-with your map!\n"RESET, data);
 		while (data->map[i][j])
 			j++;
 		if (data->count == 0)

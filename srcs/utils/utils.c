@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 18:52:43 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/18 17:52:09 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/20 21:06:56 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ EXIT_OP_PATH, &data->img.x, &data->img.y);
 	}
 }
 
-int	is_valid_content(char c, t_map_content map_content)
+int	is_valid_content(char c, t_content map_content)
 {
 	if (c != map_content.wall
 		&& c != map_content.exit

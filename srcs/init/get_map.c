@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:25:04 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/17 18:11:51 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/20 21:18:05 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,16 @@ void	get_map(char **argv, t_mlx_data *data)
 	fd = open(argv[1], O_RDONLY);
 	map = ft_calloc(1, sizeof(char));
 	if (fd < 0 || !ft_strnstr(&argv[1][ft_strlen(argv[1]) - 4], ".ber", 4))
-		ft_error("Error\nIncorrect map file\n", data);
+	{
+		free(map);
+		ft_error("Incorrect map file\n", data);
+	}
 	while (1)
 	{
 		line = get_next_line(fd);
 		if (!line)
 			break ;
 		map = ft_join_free(&map, line);
-		ft_printf("%s\n", line);
 		free(line);
 	}
 	data->map = ft_split(map, '\n');

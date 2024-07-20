@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:07:36 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/18 17:54:12 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/20 20:37:05 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int argc, char **argv)
 
 	data = ft_calloc(1, sizeof(t_mlx_data));
 	check_args(argc, argv, data);
-	init_map_content(data);
+	init_content(data);
 	get_map(argv, data);
 	flood_fill(data);
 	ft_mlx_init(data);
