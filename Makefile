@@ -6,7 +6,7 @@
 #    By: crystal <crystal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 19:00:12 by crystal           #+#    #+#              #
-#    Updated: 2024/07/21 13:12:18 by crystal          ###   ########.fr        #
+#    Updated: 2024/07/21 13:13:44 by crystal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ clean:
 	echo "${RED}Cleaning libft && Push_swap...${RESET}"
 	$(MAKE) clean --no-print-directory -C ./libft
 	$(RM) $(OBJS) objs
+	$(RM) libft.a
 	echo "${GREEN}Succes!!!${RESET}"
 	
 fclean: clean
