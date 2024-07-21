@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 17:56:29 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/20 21:07:14 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/21 12:57:35 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,10 @@ void	check_map(t_mlx_data *data)
 {
 	check_valid_map(data);
 	check_walls(data);
+	if (data->rows < 3 || data->cols < 3)
+		ft_error(RED"Map is too small\n"RESET, data);
+	if (data->rows > 60 || data->cols > 32)
+		ft_error(RED"Map is too big\n"RESET, data);
 	if (data->map_content.player_found != 1 \
 	|| data->map_content.exit_found != 1)
 		ft_error(RED"There should be one \
