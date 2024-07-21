@@ -6,7 +6,7 @@
 #    By: crystal <crystal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 19:00:12 by crystal           #+#    #+#              #
-#    Updated: 2024/07/18 18:47:33 by crystal          ###   ########.fr        #
+#    Updated: 2024/07/21 13:12:18 by crystal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,10 +46,6 @@ endif
 .SILENT:
 
 all: $(MLX_LIB) so_long
-# [...]
- 
-# .c.o:
-# 	$(CC) $(CFLAGS) -c -o $(EXEC) $@ $< $(INCLUDES)
 
 so_long: $(NAME) $(OBJS)
 	echo "${CYAN}Compiling so_long...${RESET}"
@@ -60,8 +56,6 @@ $(NAME): $(OBJS)
 	$(MAKE) --no-print-directory -C ./libft
 	cp libft/libft.a ../so_long
 	ar rc $(NAME) $(OBJS)
-	mkdir objs
-	mv $(OBJS) objs
 $(MLX_LIB):
 	@make -C $(MLX_DIR)
 clean:
