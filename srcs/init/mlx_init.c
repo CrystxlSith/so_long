@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 21:37:58 by crystal           #+#    #+#             */
-/*   Updated: 2024/07/17 18:08:09 by crystal          ###   ########.fr       */
+/*   Updated: 2024/07/22 14:22:59 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	ft_mlx_init(t_mlx_data *data)
 	if (!data->mlx)
 	{
 		free(data->mlx);
-		ft_error("Error\nmlx_init failed\n", data);
+		ft_error("mlx_init failed\n", data);
 	}
 	data->win = mlx_new_window(data->mlx, data->rows * 32, \
 	data->cols * 32, "so_long");
 	if (!data->win)
 	{
 		free(data->mlx);
-		ft_error(RED"Error\nfailed to create new window\n"RESET, data);
+		ft_error(RED"failed to create new window\n"RESET, data);
 	}
 }
